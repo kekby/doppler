@@ -1,8 +1,8 @@
-defmodule DuperTest do
+defmodule DopplerTest do
   use ExUnit.Case
-  doctest Duper
+  doctest Doppler
 
   test "greets the world" do
-    assert Duper.hello() == :world
+    assert Doppler.hello() == :world
   end
 end

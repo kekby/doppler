@@ -1,17 +1,4 @@
-defmodule Duper do
-  @moduledoc """
-  Documentation for `Duper`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Duper.hello()
-      :world
-
-  """
+defmodule Doppler do
   def hello do
     :world
   end
