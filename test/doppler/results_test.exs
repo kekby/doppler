@@ -15,5 +15,4 @@ defmodule Doppler.ResultsTest do
     assert ~w{path3 path1} in duplicates
     assert ~w{path5 path2} in duplicates
   end
-
 end

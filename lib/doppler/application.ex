@@ -7,7 +7,8 @@ defmodule Doppler.Application do
 
   def start(_type, _args) do
     children = [
-      Doppler.Results
+      Doppler.Results,
+      { Doppler.PathFinder, "." }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

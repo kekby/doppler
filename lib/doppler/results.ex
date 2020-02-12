@@ -9,7 +9,7 @@ defmodule Doppler.Results do
   end
 
   def add_hash_for(path, hash) do
-    GenServer.cast(@me, { :add, path, hash })
+    GenServer.cast(@me, {:add, path, hash})
   end
 
   def find_duplicates() do
@@ -19,18 +19,20 @@ defmodule Doppler.Results do
   # Server
 
   def init(:no_args) do
-    { :ok, %{} }
+    {:ok, %{}}
   end
 
-  def handle_cast({ :add, path, hash }, results) do
-    results
-      = Map.update(
+  def handle_cast({:add, path, hash}, results) do
+    results =
+      Map.update(
         results,
         hash,
-        [ path ],
+        [path],
         fn existing ->
-          [ path | existing ]
-        end)
+          [path | existing]
+        end
+      )
+
     {:noreply, results}
   end
 
@@ -44,8 +46,7 @@ defmodule Doppler.Results do
 
   def hashes_with_more_than_one_path(results) do
     results
-    |> Enum.filter(fn { _hash, paths } -> length(paths) > 1 end)
+    |> Enum.filter(fn {_hash, paths} -> length(paths) > 1 end)
     |> Enum.map(&elem(&1, 1))
   end
-
 end
