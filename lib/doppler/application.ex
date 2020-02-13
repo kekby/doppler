@@ -9,7 +9,8 @@ defmodule Doppler.Application do
     children = [
       Doppler.Results,
       {Doppler.PathFinder, "."},
-      Doppler.WorkerSupervisor
+      Doppler.WorkerSupervisor,
+      {Doppler.Gatherer, 1}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
